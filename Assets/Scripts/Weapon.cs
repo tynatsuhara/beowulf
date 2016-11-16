@@ -3,13 +3,10 @@ using System.Collections;
 
 public class Weapon : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public float damage;
+	public float speed;
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void Attack() {
+		
 	}
 }

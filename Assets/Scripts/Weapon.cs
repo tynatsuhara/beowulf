@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour {
 	public float damage;
 	public float speed;
 	public bool isAttacking;
+	public Transform rotationPoint;
 	private float distLeft;
 	
 	public void Attack() {
@@ -19,7 +20,7 @@ public class Weapon : MonoBehaviour {
 	public void Update() {
 		if (isAttacking) {
 			distLeft -= speed;
-			transform.RotateAround(transform.position, transform.forward, speed);
+			transform.RotateAround(transform.position, transform.forward, -speed);
 			if (distLeft <= 0) {
 				isAttacking = false;
 				transform.rotation = Quaternion.identity;

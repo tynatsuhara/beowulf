@@ -28,4 +28,9 @@ public class Character : MonoBehaviour {
 		if (shield != null)
 			shield.Block();
 	}
+
+	public void Unblock() {
+		if (shield != null)
+			shield.Unblock();
+	}
 }

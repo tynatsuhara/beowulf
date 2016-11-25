@@ -10,9 +10,13 @@ public class Character : MonoBehaviour {
 	public bool isAlive {
 		get { return health > 0; }
 	}
+	public bool isBlocking {
+		get { return shield != null && shield.isBlocking; }
+	}
 
 	public void Move(float dx, float dy) {
-		transform.Translate(speed * new Vector3(dx, dy, 0f));
+		float currentSpeed = isBlocking ? speed / 1.5f : speed;
+		transform.Translate(currentSpeed * new Vector3(dx, dy, 0f));
 	}
 
 	public void Damage(float amount, GameObject attacker) {

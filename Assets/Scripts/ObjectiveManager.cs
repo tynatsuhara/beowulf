@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
 
 public class ObjectiveManager : MonoBehaviour {
@@ -15,6 +14,11 @@ public class ObjectiveManager : MonoBehaviour {
 
 		CreateObjective("AdventureBegins", "Visit Hrothgar in Denmark");
 		CreateObjective("FirstParty", "Drink and party to draw Grendel to Heorot");
+	}
+
+	public void CompleteCurrentObjective() {
+		if (objectives.Count > 0)
+			objectives.RemoveAt(0);
 	}
 
 	public string CurrentObjectiveText() {

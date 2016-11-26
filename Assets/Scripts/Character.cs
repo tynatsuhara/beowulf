@@ -14,14 +14,19 @@ public class Character : MonoBehaviour {
 		get { return shield != null && shield.isBlocking; }
 	}
 	public bool isWalking;
+	public Vector3 stablePosition;	
+	private Speech speech;
 
 	void Start() {
 		StartCoroutine("WalkAnimation");
+		SpawnSpeech();
+		stablePosition = transform.position;
 	}
 
 	public void Move(float dx, float dy) {
 		float currentSpeed = isBlocking ? speed / 1.5f : speed;
 		transform.Translate(currentSpeed * new Vector3(dx, dy, 0f));
+		stablePosition += currentSpeed * new Vector3(dx, dy, 0f);
 		isWalking = dx != 0 || dy != 0;
 	}
 
@@ -60,5 +65,10 @@ public class Character : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(isBlocking && dir == 1 ? .2f : .13f);
 		}	
+	}
+
+	private void SpawnSpeech() {
+		speech = (Instantiate(Resources.Load("speech")) as GameObject).GetComponent<Speech>();
+		speech.character = transform;
 	}
 }

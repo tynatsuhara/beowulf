@@ -45,13 +45,20 @@ public class Character : MonoBehaviour {
 	}
 
 	private IEnumerator WalkAnimation() {
-		int dir = 1;
+		int dir = 1;  // 1 == going up, -1 == going down
+		int leftRightDir = 1;
 		while (true) {
+			if (!isWalking || dir == -1) {
+				transform.rotation = Quaternion.identity;
+			} else if (dir == 1) {
+				transform.RotateAround(transform.position, Vector3.forward, 2.5f * leftRightDir);
+				leftRightDir *= -1;
+			}
 			if (isWalking || dir == -1) {
-				transform.position += transform.up * .008f * dir;
+				transform.position += transform.up * .013f * dir;
 				dir *= -1;
 			}
-			yield return new WaitForSeconds(.12f);
+			yield return new WaitForSeconds(isBlocking && dir == 1 ? .2f : .13f);
 		}	
 	}
 }

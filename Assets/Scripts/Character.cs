@@ -49,6 +49,10 @@ public class Character : MonoBehaviour {
 			shield.Unblock();
 	}
 
+	public void Say(string[] lines) {
+		speech.Say(lines);
+	}
+
 	private IEnumerator WalkAnimation() {
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;

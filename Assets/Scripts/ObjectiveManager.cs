@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ObjectiveManager : MonoBehaviour {
 
-	public ObjectiveManager instance;
+	public static ObjectiveManager instance;
 	private List<Objective> objectives;
 	
 	void Awake() {
@@ -12,7 +12,7 @@ public class ObjectiveManager : MonoBehaviour {
 		instance = this;
 		objectives = new List<Objective>();
 
-		CreateObjective("AdventureBegins", "Visit Hrothgar in Denmark");
+		CreateObjective("AdventureBegins", "Talk to Hrothgar");
 		CreateObjective("FirstParty", "Drink and party to draw Grendel to Heorot");
 	}
 

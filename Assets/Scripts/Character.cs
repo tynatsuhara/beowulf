@@ -53,6 +53,10 @@ public class Character : MonoBehaviour {
 		speech.Say(lines);
 	}
 
+	public void Say(string line) {
+		speech.Say(new string[]{ line });
+	}
+
 	private IEnumerator WalkAnimation() {
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;

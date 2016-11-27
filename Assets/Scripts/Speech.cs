@@ -22,7 +22,7 @@ public class Speech : MonoBehaviour {
 	private IEnumerator SayLines() {
 		foreach (string s in lines) {
 			text.text = s;
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(Conversation.instance.conversationSpeed);
 		}
 		text.text = "";
 	}

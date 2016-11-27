@@ -16,6 +16,6 @@ public class CameraFollow : MonoBehaviour {
 		transform.position = Vector3.Lerp(transform.position, toPos, followSpeed);
 
 		Camera cam = GetComponent<Camera>();
-		cam.orthographicSize = Mathf.Clamp(cam.orthographicSize + Input.GetAxis("Mouse ScrollWheel") * -scrollMultiplier, .1f, 1.3f);
+		cam.orthographicSize = Mathf.Clamp(cam.orthographicSize + Input.GetAxis("Mouse ScrollWheel") * -scrollMultiplier, 1f, 10f);
 	}
 }

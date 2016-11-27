@@ -64,7 +64,7 @@ public class Character : MonoBehaviour {
 				leftRightDir *= -1;
 			}
 			if (isWalking || dir == -1) {
-				transform.position += transform.up * .013f * dir;
+				transform.position += transform.up * .07f * dir;
 				dir *= -1;
 			}
 			yield return new WaitForSeconds(isBlocking && dir == 1 ? .2f : .13f);

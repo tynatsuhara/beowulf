@@ -26,16 +26,23 @@ public class Conversation : MonoBehaviour {
 	public void StartConversation(string[] lines, params Character[] characters) {
 		this.lines = new List<string>(lines);
 		this.characters = characters;
+		this.lines.Insert(0, "");
 		AdvanceLine();
 	}
 
 	public void AdvanceLine() {
 		CancelInvoke("AdvanceLine");
-		if (lines.Count == 0)
+		if (lines.Count == 0 || characters == null)
 			return;
+		foreach(Character c in characters)
+			c.Say("");
+		lines.RemoveAt(0);
+		if (lines.Count == 0) {
+			characters = null;
+			return;
+		}
 		Character speaker = characters[int.Parse(lines[0].Split(null)[0])];
 		speaker.Say(lines[0].Substring(2));
-		lines.RemoveAt(0);
 		Invoke("AdvanceLine", conversationSpeed);
 	}
 }

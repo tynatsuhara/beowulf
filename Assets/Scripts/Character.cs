@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour, Damageable {
 
 	public Weapon weapon;
 	public Shield shield;
@@ -61,6 +61,18 @@ public class Character : MonoBehaviour {
 
 	public bool PlayerWithinDistance(float dist) {
 		return (transform.position - GameManager.instance.player.transform.position).magnitude < dist;
+	}
+
+	public void Damage(float amount, Vector3 direction) {
+		bool wasAlive = isAlive;
+		bool facingHit = Mathf.Sign(transform.root.localScale.x) != Mathf.Sign(direction.x);
+		if (isBlocking && facingHit)
+			amount *= .25f;
+		health -= amount;
+		if (!isAlive && wasAlive) {
+			// TODO: knockback?
+		}
+		return;
 	}
 
 	private IEnumerator WalkAnimation() {

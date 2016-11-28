@@ -16,7 +16,7 @@ public class Hrothgar : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (state == State.WAITING && c.PlayerWithinDistance(1f)) {
+		if (state == State.WAITING && c.PlayerWithinDistance(1.5f)) {
 			state = State.TALKING;
 			Conversation.instance.StartConversation(greetingBeowulf, c, GameManager.instance.player);
 		} else if (state == State.TALKING && Conversation.instance.ConversationComplete) {

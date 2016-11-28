@@ -6,7 +6,6 @@ public class Weapon : MonoBehaviour {
 	public float damage;
 	public float speed;
 	public bool isAttacking;
-	public Transform rotationPoint;
 	private float distLeft;
 	
 	public void Attack() {

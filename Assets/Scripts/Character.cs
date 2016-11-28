@@ -57,6 +57,10 @@ public class Character : MonoBehaviour {
 		speech.Say(new string[]{ line });
 	}
 
+	public bool PlayerWithinDistance(float dist) {
+		return (transform.position - GameManager.instance.player.transform.position).magnitude < dist;
+	}
+
 	private IEnumerator WalkAnimation() {
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;

@@ -13,7 +13,17 @@ public class Conversation : MonoBehaviour {
 	}
 	
 	void Update () {
-	
+		PositionCamera();
+	}
+
+	private void PositionCamera() {
+		if (characters == null || characters.Length == 0)
+			return;
+		Vector3 avgPos = new Vector3();
+		foreach (Character c in characters)
+			avgPos += c.transform.position;
+		avgPos /= characters.Length;
+		CameraFollow.instance.TrackPosition(avgPos);
 	}
 
 	private List<string> lines;
@@ -37,8 +47,9 @@ public class Conversation : MonoBehaviour {
 		foreach(Character c in characters)
 			c.Say("");
 		lines.RemoveAt(0);
-		if (lines.Count == 0) {
+		if (lines.Count == 0) {  // convo over
 			characters = null;
+			CameraFollow.instance.TrackPlayer();
 			return;
 		}
 		Character speaker = characters[int.Parse(lines[0].Split(null)[0])];

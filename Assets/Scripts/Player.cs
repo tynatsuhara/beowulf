@@ -19,9 +19,9 @@ public class Player : MonoBehaviour {
 			c.Unblock();
 		}
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			c.Say(new string[]{"nice", "meme", "friend"});
+			Conversation.instance.AdvanceLine();
 		}
-		c.Move(Input.GetAxis("Horizontal") / 100, Input.GetAxis("Vertical") / 100);
+		c.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		if (Input.GetAxisRaw("Horizontal") != 0) {
 			transform.localScale = new Vector3(Mathf.Sign(Input.GetAxisRaw("Horizontal")), 1f, 1f);
 		}

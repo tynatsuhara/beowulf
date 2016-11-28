@@ -24,6 +24,8 @@ public class Character : MonoBehaviour {
 	}
 
 	public void Move(float dx, float dy) {
+		dx *= Time.deltaTime;
+		dy *= Time.deltaTime;
 		float currentSpeed = isBlocking ? speed / 1.5f : speed;
 		transform.Translate(currentSpeed * new Vector3(dx, dy, 0f));
 		stablePosition += currentSpeed * new Vector3(dx, dy, 0f);

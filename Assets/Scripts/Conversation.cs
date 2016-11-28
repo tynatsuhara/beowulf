@@ -17,6 +17,9 @@ public class Conversation : MonoBehaviour {
 	}
 
 	private List<string> lines;
+	public bool ConversationComplete {
+		get { return lines.Count == 0; }
+	}
 	private Character[] characters;
 
 	//   lines - each line in array should start with "X " where X is the Xth character param

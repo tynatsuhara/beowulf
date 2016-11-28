@@ -16,6 +16,7 @@ public class Speech : MonoBehaviour {
 	private string[] lines;
 	public void Say(string[] lines) {
 		this.lines = lines;
+		StopCoroutine("SayLines");
 		StartCoroutine("SayLines");
 	}
 

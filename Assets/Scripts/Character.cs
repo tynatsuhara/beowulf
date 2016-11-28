@@ -24,8 +24,14 @@ public class Character : MonoBehaviour, Damageable {
 	}
 
 	public void Move(float dx, float dy) {
+		if (new Vector3(dx, dy, 0).magnitude > 1) {
+			Vector3 normalized = new Vector3(dx, dy, 0).normalized;
+			dx = normalized.x;
+			dy = normalized.y;
+		}
 		dx *= Time.deltaTime;
 		dy *= Time.deltaTime;
+
 		float currentSpeed = isBlocking ? speed / 1.5f : speed;
 		transform.Translate(currentSpeed * new Vector3(dx, dy, 0f));
 		stablePosition += currentSpeed * new Vector3(dx, dy, 0f);

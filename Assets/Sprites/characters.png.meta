@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: dda6b63b9400547f09529ea29aeb0145
-timeCreated: 1480016177
+timeCreated: 1480402606
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: roguelikeChar_transparent_0
     21300002: roguelikeChar_transparent_1
-    21300004: roguelikeChar_transparent_2
+    21300004: pants1
     21300006: roguelikeChar_transparent_3
     21300008: roguelikeChar_transparent_4
     21300010: roguelikeChar_transparent_5
@@ -54,7 +54,7 @@ TextureImporter:
     21300094: roguelikeChar_transparent_47
     21300096: roguelikeChar_transparent_48
     21300098: roguelikeChar_transparent_49
-    21300100: roguelikeChar_transparent_50
+    21300100: pants2
     21300102: roguelikeChar_transparent_51
     21300104: roguelikeChar_transparent_52
     21300106: roguelikeChar_transparent_53
@@ -102,7 +102,7 @@ TextureImporter:
     21300190: roguelikeChar_transparent_95
     21300192: roguelikeChar_transparent_96
     21300194: roguelikeChar_transparent_97
-    21300196: roguelikeChar_transparent_98
+    21300196: pants3
     21300198: roguelikeChar_transparent_99
     21300200: roguelikeChar_transparent_100
     21300202: roguelikeChar_transparent_101
@@ -146,7 +146,7 @@ TextureImporter:
     21300278: roguelikeChar_transparent_139
     21300280: roguelikeChar_transparent_140
     21300282: roguelikeChar_transparent_141
-    21300284: roguelikeChar_transparent_142
+    21300284: pants4
     21300286: roguelikeChar_transparent_143
     21300288: roguelikeChar_transparent_144
     21300290: roguelikeChar_transparent_145
@@ -240,7 +240,7 @@ TextureImporter:
     21300466: roguelikeChar_transparent_233
     21300468: roguelikeChar_transparent_234
     21300470: roguelikeChar_transparent_235
-    21300472: roguelikeChar_transparent_236
+    21300472: pants5
     21300474: roguelikeChar_transparent_237
     21300476: roguelikeChar_transparent_238
     21300478: roguelikeChar_transparent_239
@@ -282,7 +282,7 @@ TextureImporter:
     21300550: roguelikeChar_transparent_275
     21300552: roguelikeChar_transparent_276
     21300554: roguelikeChar_transparent_277
-    21300556: roguelikeChar_transparent_278
+    21300556: pants6
     21300558: roguelikeChar_transparent_279
     21300560: roguelikeChar_transparent_280
     21300562: roguelikeChar_transparent_281
@@ -328,7 +328,7 @@ TextureImporter:
     21300642: roguelikeChar_transparent_321
     21300644: roguelikeChar_transparent_322
     21300646: roguelikeChar_transparent_323
-    21300648: roguelikeChar_transparent_324
+    21300648: pants7
     21300650: roguelikeChar_transparent_325
     21300652: roguelikeChar_transparent_326
     21300654: roguelikeChar_transparent_327
@@ -374,7 +374,7 @@ TextureImporter:
     21300734: roguelikeChar_transparent_367
     21300736: roguelikeChar_transparent_368
     21300738: roguelikeChar_transparent_369
-    21300740: roguelikeChar_transparent_370
+    21300740: pants8
     21300742: roguelikeChar_transparent_371
     21300744: roguelikeChar_transparent_372
     21300746: roguelikeChar_transparent_373
@@ -391,7 +391,7 @@ TextureImporter:
     21300768: roguelikeChar_transparent_384
     21300770: roguelikeChar_transparent_385
     21300772: roguelikeChar_transparent_386
-    21300774: roguelikeChar_transparent_387
+    21300774: hroth_hair
     21300776: roguelikeChar_transparent_388
     21300778: roguelikeChar_transparent_389
     21300780: roguelikeChar_transparent_390
@@ -419,7 +419,7 @@ TextureImporter:
     21300824: roguelikeChar_transparent_412
     21300826: roguelikeChar_transparent_413
     21300828: roguelikeChar_transparent_414
-    21300830: roguelikeChar_transparent_415
+    21300830: hrothgar
     21300832: roguelikeChar_transparent_416
     21300834: roguelikeChar_transparent_417
     21300836: roguelikeChar_transparent_418
@@ -520,7 +520,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_2
+    - name: pants1
       rect:
         serializedVersion: 2
         x: 51
@@ -1048,7 +1048,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_50
+    - name: pants2
       rect:
         serializedVersion: 2
         x: 51
@@ -1576,7 +1576,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_98
+    - name: pants3
       rect:
         serializedVersion: 2
         x: 51
@@ -2060,7 +2060,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_142
+    - name: pants4
       rect:
         serializedVersion: 2
         x: 51
@@ -3094,7 +3094,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_236
+    - name: pants5
       rect:
         serializedVersion: 2
         x: 51
@@ -3556,7 +3556,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_278
+    - name: pants6
       rect:
         serializedVersion: 2
         x: 51
@@ -4062,7 +4062,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_324
+    - name: pants7
       rect:
         serializedVersion: 2
         x: 51
@@ -4568,7 +4568,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_370
+    - name: pants8
       rect:
         serializedVersion: 2
         x: 51
@@ -4755,7 +4755,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_387
+    - name: hroth_hair
       rect:
         serializedVersion: 2
         x: 374
@@ -5063,7 +5063,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: roguelikeChar_transparent_415
+    - name: hrothgar
       rect:
         serializedVersion: 2
         x: 187

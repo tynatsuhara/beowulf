@@ -42,7 +42,7 @@ public class Conversation : MonoBehaviour {
 
 	public void AdvanceLine() {
 		CancelInvoke("AdvanceLine");
-		if (lines.Count == 0 || characters == null)
+		if (lines == null || lines.Count == 0 || characters == null)
 			return;
 		foreach(Character c in characters)
 			c.Say("");

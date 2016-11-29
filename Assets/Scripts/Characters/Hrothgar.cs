@@ -34,7 +34,7 @@ public class Hrothgar : MonoBehaviour {
 		"0 Many men have failed",
 		"0 How do we know you will succeed?",
 		"1 I killed some sea monsters",
-		"0 Thank non-Christian God!",
-		"0 Finally, a true hero"
+		"0 Finally, a true hero",
+		"0 Thank non-Christian God!"
 	};
 }

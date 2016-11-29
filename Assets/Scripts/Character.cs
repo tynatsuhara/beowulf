@@ -38,6 +38,10 @@ public class Character : MonoBehaviour, Damageable {
 		isWalking = dx != 0 || dy != 0;
 	}
 
+	public void Face(Vector3 point) {
+		transform.localScale = new Vector3(point.x < transform.position.x ? -1 : 1, transform.localScale.y, 1);
+	}
+
 	public void Damage(float amount, GameObject attacker) {
 		health -= amount;
 	}

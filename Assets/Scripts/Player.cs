@@ -26,11 +26,12 @@ public class Player : MonoBehaviour {
 		if (Input.GetAxisRaw("Horizontal") != 0) {
 			transform.localScale = new Vector3(Mathf.Sign(Input.GetAxisRaw("Horizontal")), 1f, 1f);
 		}
-
-		// StartCoroutine("GetNaked");
 	}
 
-	private IEnumerator GetNaked() {
+	public void GetNaked() {
+		StartCoroutine("GetNakedHelper");		
+	}
+	private IEnumerator GetNakedHelper() {
 		yield return new WaitForSeconds(.5f);
 		GetComponentsInChildren<SpriteRenderer>().First(x => x.name == "Tunic").enabled = false;
 		yield return new WaitForSeconds(.5f);

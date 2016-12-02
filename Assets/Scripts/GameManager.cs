@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
@@ -26,5 +25,11 @@ public class GameManager : MonoBehaviour {
 			.OrderBy(x => x.stablePosition.y)
 			.Reverse().Select(x => x.GetComponentsInChildren<SpriteRenderer>().ToList())
 			.ToList().ForEach(x => x.ForEach(y => y.sortingOrder = y.sortingOrder % 10 + 10 * i++));
+	}
+
+
+	// SCENES
+	public void StartGrendelFight() {
+		ObjectiveManager.instance.CompleteCurrentObjective();
 	}
 }

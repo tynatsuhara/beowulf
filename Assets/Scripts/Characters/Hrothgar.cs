@@ -7,7 +7,8 @@ public class Hrothgar : MonoBehaviour {
 
 	private enum State {
 		WAITING,
-		TALKING
+		TALKING,
+		WAITING_FOR_GRENDEL
 	}
 	private State state = State.WAITING;
 
@@ -20,7 +21,9 @@ public class Hrothgar : MonoBehaviour {
 			state = State.TALKING;
 			Conversation.instance.StartConversation(greetingBeowulf, c, GameManager.instance.player);
 		} else if (state == State.TALKING && Conversation.instance.ConversationComplete) {
-			c.Move(1f, 0f);
+			ObjectiveManager.instance.CompleteCurrentObjective();
+			GameManager.instance.Invoke("StartGrendelFight", 5f);
+			state = State.WAITING_FOR_GRENDEL;
 		}
 	}
 

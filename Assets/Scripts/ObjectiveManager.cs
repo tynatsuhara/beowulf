@@ -14,6 +14,7 @@ public class ObjectiveManager : MonoBehaviour {
 
 		CreateObjective("AdventureBegins", "Talk to Hrothgar");
 		CreateObjective("FirstParty", "Drink and party to draw Grendel to Heorot");
+		CreateObjective("GrendelFight", "Defeat Grendel");
 	}
 
 	public void CompleteCurrentObjective() {

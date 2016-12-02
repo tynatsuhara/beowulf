@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class Player : MonoBehaviour {
 
@@ -25,5 +26,14 @@ public class Player : MonoBehaviour {
 		if (Input.GetAxisRaw("Horizontal") != 0) {
 			transform.localScale = new Vector3(Mathf.Sign(Input.GetAxisRaw("Horizontal")), 1f, 1f);
 		}
+
+		// StartCoroutine("GetNaked");
+	}
+
+	private IEnumerator GetNaked() {
+		yield return new WaitForSeconds(.5f);
+		GetComponentsInChildren<SpriteRenderer>().First(x => x.name == "Tunic").enabled = false;
+		yield return new WaitForSeconds(.5f);
+		GetComponentsInChildren<SpriteRenderer>().First(x => x.name == "Pants").enabled = false;		
 	}
 }

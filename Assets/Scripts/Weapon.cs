@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Weapon : MonoBehaviour {
 
@@ -15,6 +16,15 @@ public class Weapon : MonoBehaviour {
 
 		isAttacking = true;
 		distLeft = 360;
+
+		List<GameObject> all = AllIntersectingPoint(transform.position 
+				+ 1.3f * Vector3.right * transform.root.localScale.x 
+				+ Vector3.up * .3f);
+		all.AddRange(AllIntersectingPoint(transform.position 
+				+ .4f * Vector3.right * transform.root.localScale.x
+				+ Vector3.up * .3f));
+		HashSet<GameObject> unique = new HashSet<GameObject>(all);
+		unique.ToList().ForEach(x => x.GetComponent<Damageable>().Damage(damage, x.transform.position - transform.position));
 	}
 
 	public void Update() {
@@ -26,5 +36,14 @@ public class Weapon : MonoBehaviour {
 				transform.rotation = Quaternion.identity;
 			}
 		}
+	}
+
+	private List<GameObject> AllIntersectingPoint(Vector3 point) {
+		return Object.FindObjectsOfType<GameObject>()
+			.Where(x => x != transform.root.gameObject
+				&& x.GetComponent<Damageable>() != null 
+				&& x.GetComponent<Collider2D>() != null
+				&& x.GetComponent<Collider2D>().bounds.Contains(point))
+			.ToList();
 	}
 }

@@ -44,10 +44,6 @@ public class Character : MonoBehaviour, Damageable {
 		transform.localScale = new Vector3(point.x < transform.position.x ? -1 : 1, transform.localScale.y, 1);
 	}
 
-	public void Damage(float amount, GameObject attacker) {
-		health -= amount;
-	}
-
 	public void Attack() {
 		if (weapon != null)
 			weapon.Attack();
@@ -81,9 +77,8 @@ public class Character : MonoBehaviour, Damageable {
 		if (isBlocking && facingHit)
 			amount *= .25f;
 		health -= amount;
-		if (!isAlive && wasAlive) {
-			// TODO: knockback?
-		}
+		transform.Translate(direction.normalized * .15f);
+		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * 2f, ForceMode2D.Impulse);
 		return;
 	}
 

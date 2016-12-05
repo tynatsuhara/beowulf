@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour {
 		if (!player.isAlive) {
 			// TODO: end game
 		}
-		SortCharacterLayers();
+	}
+
+	void LateUpdate() {
+		SortCharacterLayers();		
 	}
 
 	private void SortCharacterLayers() {

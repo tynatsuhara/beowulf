@@ -14,13 +14,15 @@ public class Character : MonoBehaviour, Damageable {
 		get { return shield != null && shield.isBlocking; }
 	}
 	public bool isWalking;
-	public Vector3 stablePosition;	
+	private Vector3 animationOffset;
+	public Vector3 stablePosition {
+		get { return transform.position - animationOffset; }	
+	}
 	private Speech speech;
 
 	void Start() {
 		StartCoroutine("WalkAnimation");
 		SpawnSpeech();
-		stablePosition = transform.position;
 	}
 
 	public void Move(float dx, float dy) {
@@ -33,8 +35,8 @@ public class Character : MonoBehaviour, Damageable {
 		dy *= Time.deltaTime;
 
 		float currentSpeed = isBlocking ? speed / 1.5f : speed;
+		Vector3 beforePos = transform.position;
 		transform.Translate(currentSpeed * new Vector3(dx, dy, 0f));
-		stablePosition += currentSpeed * new Vector3(dx, dy, 0f);
 		isWalking = dx != 0 || dy != 0;
 	}
 
@@ -86,6 +88,7 @@ public class Character : MonoBehaviour, Damageable {
 	}
 
 	private IEnumerator WalkAnimation() {
+		Vector3 initialPos = transform.position;
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;
 		while (true) {
@@ -100,7 +103,8 @@ public class Character : MonoBehaviour, Damageable {
 				dir *= -1;
 			}
 			yield return new WaitForSeconds(isBlocking && dir == 1 ? .2f : .13f);
-		}	
+		}
+		animationOffset += transform.position - initialPos;
 	}
 
 	private void SpawnSpeech() {

@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour {
 	public float speed;
 	public bool isAttacking;
 	private float distLeft;
+	public float attackDist;
 	
 	public void Attack() {
 		if (isAttacking)

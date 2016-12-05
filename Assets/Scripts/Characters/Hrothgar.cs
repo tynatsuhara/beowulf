@@ -22,7 +22,7 @@ public class Hrothgar : MonoBehaviour {
 			Conversation.instance.StartConversation(greetingBeowulf, c, GameManager.instance.player);
 		} else if (state == State.TALKING && Conversation.instance.ConversationComplete) {
 			ObjectiveManager.instance.CompleteCurrentObjective();
-			GameManager.instance.Invoke("StartGrendelFight", 5f);
+			GameManager.instance.Invoke("StartGrendelFight", 3f);
 			state = State.WAITING_FOR_GRENDEL;
 		}
 	}

@@ -77,8 +77,7 @@ public class Character : MonoBehaviour, Damageable {
 		if (isBlocking && facingHit)
 			amount *= .25f;
 		health -= amount;
-		transform.Translate(direction.normalized * .15f);
-		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * 2f, ForceMode2D.Impulse);
+		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * (!wasAlive ? 0f : (isAlive ? 2f : 5f)), ForceMode2D.Impulse);
 		return;
 	}
 

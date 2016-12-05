@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -31,6 +32,15 @@ public class GameManager : MonoBehaviour {
 			.OrderBy(x => x.stablePosition.y)
 			.Reverse().Select(x => x.GetComponentsInChildren<SpriteRenderer>().ToList())
 			.ToList().ForEach(x => x.ForEach(y => y.sortingOrder = y.sortingOrder % 10 + 10 * i++));
+	}
+
+	public List<GameObject> AllDamageableIntersectingPoint(Vector3 point, GameObject exclude) {
+		return Object.FindObjectsOfType<GameObject>()
+			.Where(x => x != exclude
+				&& x.GetComponent<Damageable>() != null 
+				&& x.GetComponent<Collider2D>() != null
+				&& x.GetComponent<Collider2D>().bounds.Contains(point))
+			.ToList();
 	}
 
 

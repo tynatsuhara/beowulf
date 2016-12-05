@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7b0256757b8844d72a51a10ef8afa3ad
-timeCreated: 1480907361
+timeCreated: 1480910211
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: grendel_1
     21300004: grendel_2
     21300006: grendel_3
+    21300008: grendel_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -96,6 +97,17 @@ TextureImporter:
         height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: grendel_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 16
+        width: 10
+        height: 14
+      alignment: 9
+      pivot: {x: -0.103710175, y: 0.70715016}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []

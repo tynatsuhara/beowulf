@@ -57,4 +57,8 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		player.GetComponent<Player>().GetNaked();
 	}
+
+	public void EndGrendelFight() {
+		ObjectiveManager.instance.CompleteCurrentObjective();
+	}
 }

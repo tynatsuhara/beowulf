@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class Grendel : MonoBehaviour {
 
@@ -37,20 +38,24 @@ public class Grendel : MonoBehaviour {
 
 	private void Die() {
 		hasDied = true;
-		ObjectiveManager.instance.CompleteCurrentObjective();
+		GameManager.instance.EndGrendelFight();
 		GameManager.instance.player.GetComponentInChildren<Shield>().GetComponent<SpriteRenderer>().sprite = arm;
 	}
 
-	private IEnumerator Attack() {		
+	private IEnumerator Attack() {
 		attacking = true;
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[1];
 		yield return new WaitForSeconds(.3f);
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[2];
-		GameManager.instance.AllDamageableIntersectingPoint(transform.position + Vector3.right * transform.root.localScale.x * 1.5f, transform.root.gameObject)
-			.ForEach(x => x.GetComponent<Damageable>().Damage(1, transform.position - x.transform.position));
+		FindObjectsOfType<GameObject>()
+			.Where(x => x.GetComponent<Damageable>() != null &&
+				   ((x.transform.position.x < transform.position.x && transform.root.localScale.x == -1) || 
+				   (x.transform.position.x > transform.position.x && transform.root.localScale.x == 1)))
+			.ToList()
+			.ForEach(x => x.GetComponent<Damageable>().Damage(1, x.transform.position - transform.position));
 		yield return new WaitForSeconds(.2f);
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[0];
-		yield return new WaitForSeconds(.8f);					
-		attacking = false;	
+		yield return new WaitForSeconds(.8f);
+		attacking = false;
 	}
 }

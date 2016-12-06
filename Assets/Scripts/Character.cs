@@ -82,10 +82,10 @@ public class Character : MonoBehaviour, Damageable {
 	}
 
 	private IEnumerator WalkAnimation() {
-		Vector3 initialPos = transform.position;
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;
 		while (true) {
+			Vector3 initialPos = transform.position;			
 			if (!isWalking || dir == -1) {
 				transform.rotation = Quaternion.identity;
 			} else if (dir == 1) {
@@ -96,9 +96,9 @@ public class Character : MonoBehaviour, Damageable {
 				transform.position += transform.up * .07f * dir;
 				dir *= -1;
 			}
+			animationOffset += transform.position - initialPos;			
 			yield return new WaitForSeconds(isBlocking && dir == 1 ? .2f : .13f);
 		}
-		animationOffset += transform.position - initialPos;
 	}
 
 	private void SpawnSpeech() {

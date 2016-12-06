@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void GetNaked() {
+		c.Say("It's go time!");
 		StartCoroutine("GetNakedHelper");		
 	}
 	private IEnumerator GetNakedHelper() {

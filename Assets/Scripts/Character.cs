@@ -5,6 +5,7 @@ public class Character : MonoBehaviour, Damageable {
 
 	public Weapon weapon;
 	public Shield shield;
+	public float maxHealth;
 	public float health;
 	public float speed;
 	public bool isAlive {
@@ -23,6 +24,7 @@ public class Character : MonoBehaviour, Damageable {
 	void Start() {
 		StartCoroutine("WalkAnimation");
 		SpawnSpeech();
+		health = maxHealth;
 	}
 
 	public void Move(float dx, float dy) {
@@ -77,7 +79,7 @@ public class Character : MonoBehaviour, Damageable {
 		if (isBlocking && facingHit)
 			amount *= .25f;
 		health -= amount;
-		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * (!wasAlive ? 0f : (isAlive ? 2f : 5f)), ForceMode2D.Impulse);
+		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * (!wasAlive ? 0f : (isAlive ? 5f : 10f)), ForceMode2D.Impulse);
 		return;
 	}
 

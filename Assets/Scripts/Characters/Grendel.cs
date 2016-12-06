@@ -11,6 +11,7 @@ public class Grendel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GetComponent<Character>().Face(transform.position + Vector3.left);
 		StartCoroutine("Attack");
 	}
 	
@@ -44,8 +45,11 @@ public class Grendel : MonoBehaviour {
 
 	private IEnumerator Attack() {
 		attacking = true;
+		yield return new WaitForSeconds(.2f);
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[1];
 		yield return new WaitForSeconds(.3f);
+		if (!GetComponent<Character>().isAlive)
+			yield break;
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[2];
 		FindObjectsOfType<GameObject>()
 			.Where(x => x.GetComponent<Damageable>() != null &&

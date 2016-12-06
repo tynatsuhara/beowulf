@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
+		if (!c.isAlive)
+			return;
+		
 		if (Input.GetMouseButtonDown(0)) {
 			c.Attack();
 		}

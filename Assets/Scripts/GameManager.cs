@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour {
 
 	void Update() {
 		if (!player.isAlive) {
-			// SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			GameUI.instance.ShowDeathText();
+			if (Input.GetKeyDown(KeyCode.Return))
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine("GrendelFight");
 	}
 	private IEnumerator GrendelFight() {
-		GameObject grendel = Instantiate(grendelPrefab) as GameObject;		
+		GameObject grendel = Instantiate(grendelPrefab, new Vector3(10f, -3.5f, 0f), Quaternion.identity) as GameObject;		
 		CameraFollow.instance.TrackPosition(grendel.transform.position);
 		yield return new WaitForSeconds(2f);
 		CameraFollow.instance.TrackPlayer();

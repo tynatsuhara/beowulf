@@ -7,8 +7,6 @@ public class Conversation : MonoBehaviour {
 	public float conversationSpeed;
 
 	void Awake () {
-		if (instance != null)
-			Destroy(this);
 		instance = this;
 	}
 	

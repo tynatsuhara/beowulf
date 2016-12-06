@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour {
 	public GameObject grendelPrefab;
 
 	void Start() {
-		if (instance != null)
-			Destroy(this);
 		instance = this;
 	}
 

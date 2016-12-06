@@ -7,8 +7,6 @@ public class ObjectiveManager : MonoBehaviour {
 	private List<Objective> objectives;
 	
 	void Awake() {
-		if (instance != null)
-			Destroy(this);
 		instance = this;
 		objectives = new List<Objective>();
 

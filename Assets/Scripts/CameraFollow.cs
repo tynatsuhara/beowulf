@@ -13,8 +13,6 @@ public class CameraFollow : MonoBehaviour {
 	private Vector3 trackingPos;
 
 	void Start() {
-		if (instance != null)
-			Destroy(this);
 		instance = this;
 	}
 	

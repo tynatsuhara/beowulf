@@ -53,8 +53,10 @@ public class Grendel : MonoBehaviour {
 		GetComponentInChildren<SpriteRenderer>().sprite = sprites[2];
 		FindObjectsOfType<GameObject>()
 			.Where(x => x.GetComponent<Damageable>() != null &&
+				   (x.transform.position - transform.position).magnitude < 2 &&
 				   ((x.transform.position.x < transform.position.x && transform.root.localScale.x == -1) || 
 				   (x.transform.position.x > transform.position.x && transform.root.localScale.x == 1)))
+			.Distinct()
 			.ToList()
 			.ForEach(x => x.GetComponent<Damageable>().Damage(1, x.transform.position - transform.position));
 		yield return new WaitForSeconds(.2f);

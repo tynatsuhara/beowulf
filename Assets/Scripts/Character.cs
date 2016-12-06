@@ -80,6 +80,9 @@ public class Character : MonoBehaviour, Damageable {
 			amount *= .25f;
 		health -= amount;
 		GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y).normalized * (!wasAlive ? 0f : (isAlive ? 5f : 10f)), ForceMode2D.Impulse);
+		if (wasAlive && !isAlive) {
+			transform.RotateAround(transform.position, Vector3.forward, 90 * (Random.Range(0, 2) == 0 ? -1 : 1));
+		}
 		return;
 	}
 
@@ -87,6 +90,8 @@ public class Character : MonoBehaviour, Damageable {
 		int dir = 1;  // 1 == going up, -1 == going down
 		int leftRightDir = 1;
 		while (true) {
+			if (!isAlive)
+				yield break;
 			Vector3 initialPos = transform.position;			
 			if (!isWalking || dir == -1) {
 				transform.rotation = Quaternion.identity;

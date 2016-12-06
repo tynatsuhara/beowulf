@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update() {
 		if (!player.isAlive) {
-			// TODO: end game
+			// SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 

@@ -23,9 +23,9 @@ public class Grendel : MonoBehaviour {
 		} else if (c.isAlive) {
 			if (!attacking) {
 				c.Face(GameManager.instance.player.stablePosition);
-				Vector3 dir = GameManager.instance.player.stablePosition - transform.position;				
+				Vector3 dir = GameManager.instance.player.stablePosition - transform.position;
 				if (dir.magnitude < 2f) {
-					c.Move(0, 0);					
+					c.Move(0, 0);
 					StartCoroutine("Attack");
 				} else {
 					c.Move(dir.x, dir.y);
@@ -33,7 +33,7 @@ public class Grendel : MonoBehaviour {
 			}
 		}
 		if (!c.isAlive) {
-			GetComponentInChildren<SpriteRenderer>().sprite = sprites[3];			
+			GetComponentInChildren<SpriteRenderer>().sprite = sprites[3];
 		}
 	}
 

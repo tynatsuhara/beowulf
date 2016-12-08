@@ -65,10 +65,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void EndGrendelLevel() {
-		StartCoroutine("GrendelCheckLoop");
-	}
-	private IEnumerator GrendelCheckLoop() {
-		
-		yield return new WaitForSeconds(.1f);
+		GameUI.instance.ShowMoneyText(5000, 100);
+		exit.enabled = true;
 	}
 }

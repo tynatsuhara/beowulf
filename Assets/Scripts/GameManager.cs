@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	public Character player;
 	public static GameManager instance;
+	public Collider exit;
 
 	public GameObject grendelPrefab;
 
@@ -61,5 +62,13 @@ public class GameManager : MonoBehaviour {
 
 	public void EndGrendelFight() {
 		ObjectiveManager.instance.CompleteCurrentObjective();
+	}
+
+	public void EndGrendelLevel() {
+		StartCoroutine("GrendelCheckLoop");
+	}
+	private IEnumerator GrendelCheckLoop() {
+		
+		yield return new WaitForSeconds(.1f);
 	}
 }

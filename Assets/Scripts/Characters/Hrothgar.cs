@@ -34,7 +34,7 @@ public class Hrothgar : MonoBehaviour {
 			state = State.TALKING_2;
 			Conversation.instance.StartConversation(thankingBeowulf, c, GameManager.instance.player);
 		} else if (state == State.TALKING_2 && Conversation.instance.ConversationComplete) {
-			
+			GameManager.instance.EndGrendelLevel();
 		}
 	}
 
@@ -54,6 +54,7 @@ public class Hrothgar : MonoBehaviour {
 
 	private string[] thankingBeowulf = {
 		"0 You've done it!",
-		"0 Grendel is finally dead"
+		"0 Grendel is finally dead",
+		"0 Thank you Beowulf!"
 	};
 }

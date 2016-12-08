@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	public Character player;
 	public static GameManager instance;
-	public Collider exit;
+	public Collider2D exit;
 
 	public GameObject grendelPrefab;
 

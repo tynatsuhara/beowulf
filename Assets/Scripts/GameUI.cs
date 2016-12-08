@@ -28,7 +28,7 @@ public class GameUI : MonoBehaviour {
 
 	private int gold, goldLeft, xp, xpLeft;
 	private float goldRate, xpRate;
-	private float countTime = 5f;
+	private float countTime = 2.5f;
 	public void ShowMoneyText(int gold, int xp) {
 		foreach (Text t in moneyText)
 			t.gameObject.SetActive(true);
@@ -47,6 +47,7 @@ public class GameUI : MonoBehaviour {
 			goldLeft -= 10;
 			moneyText[0].text = "GOLD: " + (gold - goldLeft);
 		}
+		yield break;
 	}
 	private IEnumerator CountXP() {
 		while (xpLeft > 0) {
@@ -54,6 +55,7 @@ public class GameUI : MonoBehaviour {
 			xpLeft--;
 			moneyText[1].text = "XP: " + (xp - xpLeft);
 		}
+		yield break;
 	}
 
 	public void FadeOut() {

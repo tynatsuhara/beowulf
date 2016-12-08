@@ -9,21 +9,20 @@ public class Grendel : MonoBehaviour {
 	private bool attacking;
 	public Sprite arm;
 
-	// Use this for initialization
 	void Start () {
 		GetComponent<Character>().Face(transform.position + Vector3.left);
 		StartCoroutine("Attack");
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		Character c = GetComponent<Character>();
 		if (!hasDied && !c.isAlive) {
 			Die();
 		} else if (c.isAlive) {
 			if (!attacking) {
-				c.Face(GameManager.instance.player.stablePosition);
-				Vector3 dir = GameManager.instance.player.stablePosition - transform.position;
+				Character cp = ClosestPerson();
+				c.Face(cp.stablePosition);
+				Vector3 dir = cp.stablePosition - transform.position;
 				if (dir.magnitude < 2f) {
 					c.Move(0, 0);
 					StartCoroutine("Attack");
@@ -35,6 +34,13 @@ public class Grendel : MonoBehaviour {
 		if (!c.isAlive) {
 			GetComponentInChildren<SpriteRenderer>().sprite = sprites[3];
 		}
+	}
+
+	private Character ClosestPerson() {
+		return FindObjectsOfType<Character>()
+				.Where(x => x.gameObject != gameObject && x.isAlive)
+				.OrderBy(x => (x.transform.position - transform.position).magnitude)
+				.First();
 	}
 
 	private void Die() {

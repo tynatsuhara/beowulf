@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	public Character player;
 	public static GameManager instance;
 	public Collider2D exit;
+	public AudioClip hit;
 
 	public GameObject grendelPrefab;
 
@@ -45,6 +46,10 @@ public class GameManager : MonoBehaviour {
 			.ToList();
 	}
 
+	// this code is fucking dumb
+	public void PlayHitSound() {
+		AudioSource.PlayClipAtPoint(hit, Camera.main.transform.position);
+	}
 
 	// SCENES
 	public void StartGrendelFight() {
@@ -66,6 +71,7 @@ public class GameManager : MonoBehaviour {
 
 	public void EndGrendelLevel() {
 		GameUI.instance.ShowMoneyText(5000, 100);
-		exit.enabled = true;
+		ObjectiveManager.instance.CompleteCurrentObjective();		
+		exit.gameObject.SetActive(true);
 	}
 }

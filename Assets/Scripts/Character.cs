@@ -83,6 +83,7 @@ public class Character : MonoBehaviour, Damageable {
 		if (wasAlive && !isAlive && GetComponent<Grendel>() == null) {
 			transform.RotateAround(transform.position, Vector3.forward, 90 * (Random.Range(0, 2) == 0 ? -1 : 1));
 		}
+		GameManager.instance.PlayHitSound();
 		return;
 	}
 

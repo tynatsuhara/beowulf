@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour {
 	public Text healthText;
 	public Text[] retryGame;
 	public Text[] moneyText;
+	public Text backToMenu;
 	public Image fadeColor;
 
 	void Awake() {
@@ -28,7 +29,7 @@ public class GameUI : MonoBehaviour {
 
 	private int gold, goldLeft, xp, xpLeft;
 	private float goldRate, xpRate;
-	private float countTime = 2.5f;
+	private float countTime = 1f;
 	public void ShowMoneyText(int gold, int xp) {
 		foreach (Text t in moneyText)
 			t.gameObject.SetActive(true);
@@ -36,7 +37,7 @@ public class GameUI : MonoBehaviour {
 		moneyText[1].text = "XP: " + 0;
 		this.gold = goldLeft = gold;
 		this.xp = xpLeft = xp;
-		goldRate = countTime/ 10 / gold;
+		goldRate = countTime / 10 / gold;
 		xpRate = countTime / xp;
 		StartCoroutine("CountGold");
 		StartCoroutine("CountXP");
@@ -65,8 +66,10 @@ public class GameUI : MonoBehaviour {
 		Color dark = fadeColor.color;
 		dark.a = 1f;		
 		while (fadeColor.color.a < .99f) {
-			fadeColor.color = Color.Lerp(fadeColor.color, dark, .08f);
+			fadeColor.color = Color.Lerp(fadeColor.color, dark, .1f);
 			yield return new WaitForSeconds(.01f);
 		}
+		backToMenu.gameObject.SetActive(true);
+		yield break;
 	}
 }

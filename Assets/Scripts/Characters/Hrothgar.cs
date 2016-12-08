@@ -10,7 +10,8 @@ public class Hrothgar : MonoBehaviour {
 		TALKING,
 		WAITING_FOR_GRENDEL,
 		GRENDEL_DEAD,
-		TALKING_2
+		TALKING_2,
+		END
 	}
 	private State state = State.WAITING;
 
@@ -35,6 +36,7 @@ public class Hrothgar : MonoBehaviour {
 			Conversation.instance.StartConversation(thankingBeowulf, c, GameManager.instance.player);
 		} else if (state == State.TALKING_2 && Conversation.instance.ConversationComplete) {
 			GameManager.instance.EndGrendelLevel();
+			state = State.END;
 		}
 	}
 

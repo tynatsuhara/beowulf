@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
 	public bool isAttacking;
 	private float distLeft;
 	public float attackDist;
+	public AudioClip swing;
 	
 	public void Attack() {
 		if (isAttacking)
@@ -16,6 +17,8 @@ public class Weapon : MonoBehaviour {
 
 		isAttacking = true;
 		distLeft = 360;
+		if (swing != null)
+			AudioSource.PlayClipAtPoint(swing, Camera.main.transform.position);
 
 		List<GameObject> all = GameManager.instance.AllDamageableIntersectingPoint(transform.position 
 				+ 1.3f * Vector3.right * transform.root.localScale.x 
